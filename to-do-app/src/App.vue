@@ -6,10 +6,15 @@
       <button>Add</button>
     </form>
     <template v-for='(todo, i) in todos'>
-      <todo 
+      <!-- <todo 
         :todo='todo' 
         :index='i'
         :remove='remove'
+      ></todo> -->
+      <todo
+        @removeTodo='remove'
+        :todo='todo'
+        :index='i'
       ></todo>
     </template>
   </div>
@@ -37,8 +42,8 @@ export default {
         alert('Please type in a new todo first')
       }
     },
-    remove(i) {
-      this.todos.splice(i, 1);
+    remove($event) {
+      this.todos.splice($event, 1);
     }
   }
 }

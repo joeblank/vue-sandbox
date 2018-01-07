@@ -6,7 +6,14 @@
 
 <script>
 export default {
-  props: ['todo', 'index', 'remove']
+//   props: ['todo', 'index', 'remove']
+    props: ['todo', 'index'],
+    methods: {
+        remove() {
+            this.index = 100
+            this.$emit('removeTodo', this.index);
+        }
+    }
 }
 </script>
 
